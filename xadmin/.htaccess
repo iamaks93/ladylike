@@ -1,0 +1,3 @@
+RewriteEngine On
+#Options -Indexes
+#php_admin_value engine Off

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/../ornament" />
+    <content url="file://C:/xampp/htdocs/Admin-Panel-User-Management-using-CodeIgniter-master" />
+    <content url="file://C:/xampp/htdocs/CodeIgniter" />
+    <content url="file://C:/xampp/htdocs/Hotel-Room-Booking-System-master" />
+    <content url="file://C:/xampp/htdocs/Interview" />
+    <content url="file://C:/xampp/htdocs/mysales" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

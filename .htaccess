@@ -1,0 +1,52 @@
+RewriteEngine On
+
+#Stop accesing to see directory
+Options -Indexes
+#route request to module
+#he requested path is not a real file or a
+# real directory
+
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-f
+
+#RewriteRule ^(xadmin)
+RewriteCond %{REQUEST_URI} !^/ladylike/xadmin
+RewriteCond %{REQUEST_URI} !^/ladylike/assests
+RewriteCond %{REQUEST_URI} !^/ladylike/js
+RewriteCond %{REQUEST_URI} !^/ladylike/images
+RewriteCond %{REQUEST_URI} !^/ladylike/core
+RewriteCond %{REQUEST_URI} !^/ladylike/vendors
+RewriteCond %{REQUEST_URI} !^/ladylike/page_404.html
+#RewriteCond %{REQUEST_URI} !^/ladylike/core/connection.php
+#RewriteCond %{REQUEST_URI} !^/ladylike/core/session.php
+RewriteRule ^(.*) module/$1 [L]
+# If the current request doesn't start with "blog", and
+# it's not a real file or directory based on the above
+# conditions, add "blog" to the front of the request, and
+# mark an environment variable that indicates we'll need
+
+
+#RewriteRule !^blog blog%{REQUEST_URI} [E=CHANGED:TRUE]
+
+# Check if the host doesn't start with "www.", or if we've
+# marked the change variable above, since in either of those
+# cases we need to perform a redirection (We do it this way,
+# since we'll at most send one redirect back to the client,
+# instead of the potential two we might send if we didn't
+# combine the checks)
+
+
+#RewriteCond %{HTTP_HOST}  !^www\. [OR]
+#RewriteCond %{ENV:CHANGED} =TRUE
+
+
+# Capture the non-"www." part of the host, regardless of
+# whether or not the "www." is there
+
+#RewriteCond %{HTTP_HOST}   ^(www\.)?(.*)$
+
+
+# Redirect anything to the corrected URL, using the
+# backreference from the above condition, and the entirety of
+# the requested path (possibly modified by the above RewriteRule)
+#RewriteRule ^.*$   http://www.%2/$0 [R=301,L]
