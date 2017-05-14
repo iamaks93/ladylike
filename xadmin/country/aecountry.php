@@ -110,6 +110,7 @@ $("document").ready(function(){
             if(ValidateCountry(formid) == true)
             {
                 $("#" + formid + " #ErrorCountryDiv").html("");
+                //Formdata
                 var data = new FormData($('#' + formid)[0]);
                 var ajaxsubmit = callajaxreturn("ctl_country.php?action=submit",data,"", "POST", "", "", "");
                 if(ajaxsubmit.trim() == "Country Data Submitted." || ajaxsubmit.trim() == "Country Data Updated.")
