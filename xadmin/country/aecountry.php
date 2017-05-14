@@ -109,10 +109,9 @@ $("document").ready(function(){
             // Validate country form control
             if(ValidateCountry(formid) == true)
             {
-                var formdata = $("form").serialize();
-                var data = "action=submit&"+formdata;
-                var ajaxsubmit = callajaxreturn("ctl_country.php",data,"","POST","","","");
-                $("#ErrorCountryDiv").html("");
+                $("#" + formid + " #ErrorCountryDiv").html("");
+                var data = new FormData($('#' + formid)[0]);
+                var ajaxsubmit = callajaxreturn("ctl_country.php?action=submit",data,"", "POST", "", "", "");
                 if(ajaxsubmit.trim() == "Country Data Submitted." || ajaxsubmit.trim() == "Country Data Updated.")
                 {
                     // Reload data table

@@ -5,7 +5,6 @@
  * Date: 2/10/2017
  * Time: 10:32 PM
  */
-
 require_once "mdl_country.php";
 
 /*$url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -40,11 +39,11 @@ exit;*/
 $objCountry  = new Country();
 $RequestHandlerAction = "";
 $countrysno = "";
-
 /*
  * @Var : $RequestHandlerAction is Request handler variable
  * @example : action=add.
 */
+
 $RequestHandlerAction = $_REQUEST['action'];
 
 /*CountrySno  request only set in edit mode (in other mode it will give error undefined index)
@@ -79,13 +78,13 @@ switch(trim($RequestHandlerAction))
     /*@uses : To Submit the form in db*/
     case "submit":
     {
-        $objCountry->SubmitCountry($_REQUEST);
+        $objCountry->SubmitCountry();
         break;
     }
     /*@uses : Get datatable data in json format when page load*/
     case "getdatatable":
     {
-        $objCountry->GetDatatable($_REQUEST);
+        $objCountry->GetDatatable();
         break;
     }
     /*@uses : Delete datatable column data*/
@@ -150,13 +149,12 @@ class Country
     /* @uses : To Submit the form in db
      * @param : $Requests Request of edit mode (action=submit) and other form controls
      */
-    function SubmitCountry($Requests)
+    function SubmitCountry()
     {
-
-        $Countrysno = intval($Requests['hiddenCountrySno']);
+        $Countrysno = intval($_POST['hiddenCountrySno']);
         if($this->ObjSession->HiddenCountrySno === $Countrysno)
         {
-            $this->mdl_Country->SubmitCountry($Requests);
+            $this->mdl_Country->SubmitCountry();
         }
         else
         {
@@ -168,7 +166,7 @@ class Country
      * @param : $Requests Request of data table(action=getdatatable)
      * @return : Return all country table data
      */
-    function GetDatatable($Requests)
+    function GetDatatable()
     {
          $this->mdl_Country->GetCountry();
     }

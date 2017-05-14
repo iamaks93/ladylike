@@ -7,7 +7,6 @@
  */
 
 require_once "mdl_doctor.php";
-
 /*
  * @Obj : $objDoctor of State Class
 */
@@ -55,7 +54,7 @@ switch(trim($RequestHandlerAction))
     /*@uses : To Submit the form in db*/
     case "submit":
     {
-        $objDoctor->SubmitDoctor($_REQUEST);
+        $objDoctor->SubmitDoctor();
         break;
     }
     /*@uses : Get datatable data in json format when page load*/

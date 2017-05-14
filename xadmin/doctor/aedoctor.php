@@ -447,17 +447,11 @@ else
         $("#formSubmitDoctor").on("submit", function (e)
         {
             e.preventDefault();
-
-            var formdata = new FormData(this);
-
             var formid = $("form").attr('id');
             // Validate state form control
             if (ValidateDoctor(formid) === true)
             {
-
-                    //alert(formdata);
-                   // return false;
-                    var data = formdata;
+                    var data = new FormData(this);
                     var ajaxsubmit = callajaxreturn("ctl_doctor.php?action=submit", data, "", "POST", "", "", "");
 
                     //alert(ajaxsubmit);

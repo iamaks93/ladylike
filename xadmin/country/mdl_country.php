@@ -34,17 +34,17 @@ class mdl_Country
     /* @uses : To Submit the form in db
      * @param : $Requests Request of edit mode (action=submit) and other form controls
      */
-    function SubmitCountry($Request)
+    function SubmitCountry()
     {
         //if ( strlen( $_POST[ ‘comment’ ] ) <= 256 )
 
         //$comment = htmlentities ( trim ( $_POST[ ‘comment’ ] ) , ENT_NOQUOTES );
 
         // Sanitize user input(never trust on user input)
-        $countryname = $this->ObjBase->sanitize_input($Request['txtCountryName']);
-        $countrycode = $this->ObjBase->sanitize_input($Request['txtCountryCode']);
-        $countrysno = $this->ObjBase->sanitize_input(intval($Request['hiddenCountrySno']));
-        $desc = $this->ObjBase->sanitize_input($Request['txaDescription']);
+        $countryname = $this->ObjBase->sanitize_input($_POST['txtCountryName']);
+        $countrycode = $this->ObjBase->sanitize_input($_POST['txtCountryCode']);
+        $countrysno = $this->ObjBase->sanitize_input(intval($_POST['hiddenCountrySno']));
+        $desc = $this->ObjBase->sanitize_input($_POST['txaDescription']);
 
         //Check if country code is not blank
         if(!empty($countrycode))
